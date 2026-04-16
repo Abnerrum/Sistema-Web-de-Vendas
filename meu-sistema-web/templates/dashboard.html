@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+<div class="container">
+<div class="card">
+
+<h1>📊 Dashboard</h1>
+
+<a href="/produto">📦 Produtos</a>
+<a href="/logout">Sair</a>
+
+<form action="/add" method="post">
+    <select name="produto">
+        {% for p in produtos %}
+            <option value="{{ p[0] }}">{{ p[1] }}</option>
+        {% endfor %}
+    </select>
+
+    <input type="number" name="valor" placeholder="Valor" required>
+    <button>Adicionar</button>
+</form>
+
+<ul>
+{% for venda in vendas %}
+    <li>
+        {{ venda[1] }} - R$ {{ venda[2] }}
+        <a href="/editar/{{ venda[0] }}">✏️</a>
+        <a href="/delete/{{ venda[0] }}">🗑</a>
+    </li>
+{% endfor %}
+</ul>
+
+<canvas id="grafico"></canvas>
+
+</div>
+</div>
+
+<script>
+new Chart(document.getElementById('grafico'), {
+    type: 'bar',
+    data: {
+        labels: {{ labels|safe }},
+        datasets: [{
+            label: 'Vendas',
+            data: {{ valores|safe }},
+        }]
+    }
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Produtos</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<div class="container">
+<div class="card">
+
+<h2>Cadastro de Produtos</h2>
+
+<form method="post">
+    <input type="text" name="nome" placeholder="Nome" required>
+    <input type="number" name="preco" placeholder="Preço" required>
+    <button>Cadastrar</button>
+</form>
+
+<ul>
+{% for p in produtos %}
+    <li>{{ p[1] }} - R$ {{ p[2] }}</li>
+{% endfor %}
+</ul>
+
+<a href="/dashboard">Voltar</a>
+
+</div>
+</div>
+
+</body>
+</html>

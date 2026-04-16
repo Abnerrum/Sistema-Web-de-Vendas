@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Editar</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<div class="container">
+<div class="card">
+
+<h2>Editar Venda</h2>
+
+<p>{{ venda[1] }}</p>
+
+<form method="post">
+    <input type="number" name="valor" value="{{ venda[2] }}" required>
+    <button>Salvar</button>
+</form>
+
+<a href="/dashboard">Voltar</a>
+
+</div>
+</div>
+
+</body>
+</html>

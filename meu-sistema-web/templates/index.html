@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sistema de Vendas</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<div class="container">
+    <div class="card">
+
+        <h1>💰 Sistema de Vendas</h1>
+
+        <form action="/add" method="post">
+            <input type="number" name="valor" step="0.01" placeholder="Digite o valor" required>
+            <button type="submit">Adicionar</button>
+        </form>
+
+        <a href="/relatorio">📊 Ver Relatório</a>
+
+        <h2>📋 Vendas</h2>
+
+        <ul>
+            {% for venda in vendas %}
+                <li>R$ {{ venda[1] }}</li>
+            {% endfor %}
+        </ul>
+
+    </div>
+</div>
+
+</body>
+</html>
