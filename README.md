@@ -14,5 +14,5 @@
 - Chart.js
 
 ## Como rodar
-pip install flask
+pip install flask,
 python app.py
